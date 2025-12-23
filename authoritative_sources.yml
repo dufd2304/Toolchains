@@ -1,0 +1,104 @@
+# ============================================================
+# Authoritative Documentation Sources Registry (GLOBAL)
+# ============================================================
+# Purpose:
+# - Single global registry of authoritative documentation
+#   sources for ALL programming projects.
+# - Defines which documentation is considered authoritative
+#   for a given tool, library, framework, or platform.
+#
+# Enforcement contract with assistant:
+# - Any tool NOT listed here → assistant MUST stop and ask
+# - Any listed tool where:
+#     • version differs from the recorded version
+#     • OR date_committed is older than max_age_months
+#   → assistant MUST ask whether to:
+#     a) proceed with the existing source
+#     b) update or replace the source
+#
+# This file is intentionally limited to documentation metadata.
+# No terminology, translation, or semantic rules belong here.
+#
+# Owner: <YOUR NAME>
+# Created: YYYY-MM-DD
+# ============================================================
+
+meta:
+  scope: "global"                     # global | project-specific
+  owner: "<YOUR NAME>"
+
+  enforcement_policy:
+    require_authoritative_source: true
+    allow_unlisted_tools: false
+    max_source_age_months: 6
+    require_version_match: true
+
+# ------------------------------------------------------------
+# DOCUMENTATION REGISTRY
+# ------------------------------------------------------------
+tools:
+
+  # ----------------------------------------------------------
+  # TEMPLATE — copy for each new tool/library/framework
+  # ----------------------------------------------------------
+  tool_identifier:
+    status: inactive                  # active | inactive | deprecated
+    category: unspecified             # ml | tts | audio | video | infra | dev | research | other
+
+    description: >
+      Short, factual description of what this tool/library is.
+      (No justification, no usage notes.)
+
+    authoritative_sources:
+      primary:
+        type: github                  # github | docs | spec | paper
+        url: https://example.com
+        version: "vX.Y.Z"             # exact tag / release / commit / doc version
+        date_committed: YYYY-MM-DD    # date YOU approved this source
+
+      secondary:
+        # Optional, non-authoritative references
+        - type: docs
+          url: https://example.com/docs
+        - type: paper
+          url: https://arxiv.org/abs/XXXX.XXXXX
+
+    version_policy:
+      strict: true                    # true = mismatch forces user confirmation
+      allowed_drift: null             # e.g. "^2.1", "~1.x", or null
+
+    approved_by_user: false
+    approval_date: null
+
+  # ----------------------------------------------------------
+  # REAL ENTRIES GO BELOW (commented until activated)
+  # ----------------------------------------------------------
+
+  # pytorch:
+  #   status: active
+  #   category: ml
+  #   description: >
+  #     Machine learning framework for tensor computation and
+  #     GPU-accelerated training and inference.
+  #
+  #   authoritative_sources:
+  #     primary:
+  #       type: docs
+  #       url: https://pytorch.org/docs/stable/
+  #       version: "2.5.1"
+  #       date_committed: 2025-01-15
+  #
+  #   version_policy:
+  #     strict: true
+  #     allowed_drift: "2.5.x"
+  #
+  #   approved_by_user: true
+  #   approval_date: 2025-01-15
+
+# ------------------------------------------------------------
+# CHANGE LOG
+# ------------------------------------------------------------
+changelog:
+  - date: YYYY-MM-DD
+    author: "<YOUR NAME>"
+    change: "Initial global authoritative documentation registry created"
