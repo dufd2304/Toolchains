@@ -58,17 +58,17 @@ tools:
 
       secondary:
         # Optional, non-authoritative references
-        - type: docs
-          url: https://example.com/docs
-        - type: paper
-          url: https://arxiv.org/abs/XXXX.XXXXX
+      - type: docs
+        url: https://example.com/docs
+      - type: paper
+        url: https://arxiv.org/abs/XXXX.XXXXX
 
     version_policy:
       strict: true                    # true = mismatch forces user confirmation
-      allowed_drift: null             # e.g. "^2.1", "~1.x", or null
+      allowed_drift:                  # e.g. "^2.1", "~1.x", or null
 
     approved_by_user: false
-    approval_date: null
+    approval_date:
 
   # ----------------------------------------------------------
   # REAL ENTRIES GO BELOW (commented until activated)
@@ -98,7 +98,23 @@ tools:
 # ------------------------------------------------------------
 # CHANGE LOG
 # ------------------------------------------------------------
+  micromamba:
+    status: active
+    category: infra
+    description: Lightweight conda-compatible environment manager used to manage
+      Python and native dependencies.
+    authoritative_sources:
+      primary:
+        type: docs
+        url: https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html
+        version: 2.4.0
+        date_committed: '2025-12-23'
+    version_policy:
+      strict: true
+      allowed_drift:
+    approved_by_user: true
+    approval_date: '2025-12-23'
 changelog:
-  - date: YYYY-MM-DD
-    author: "<YOUR NAME>"
-    change: "Initial global authoritative documentation registry created"
+- date: YYYY-MM-DD
+  author: "<YOUR NAME>"
+  change: "Initial global authoritative documentation registry created"
