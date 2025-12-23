@@ -159,6 +159,21 @@ tools:
       allowed_drift:
     approved_by_user: true
     approval_date: '2025-12-23'
+  ninja:
+    status: active
+    category: build
+    description: Small, fast build system focused on speed.
+    authoritative_sources:
+      primary:
+        type: docs
+        url: https://ninja-build.org/manual.html
+        version: 1.13.2
+        date_committed: '2025-12-23'
+    version_policy:
+      strict: true
+      allowed_drift:
+    approved_by_user: true
+    approval_date: '2025-12-23'
 changelog:
 - date: YYYY-MM-DD
   author: "<YOUR NAME>"
