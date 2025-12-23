@@ -101,8 +101,8 @@ tools:
   micromamba:
     status: active
     category: infra
-    description: Lightweight conda-compatible environment manager used to manage
-      Python and native dependencies.
+    description: Lightweight conda-compatible environment manager used to manage Python
+      and native dependencies.
     authoritative_sources:
       primary:
         type: docs
